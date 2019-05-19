@@ -1,0 +1,29 @@
+<section class="weather-list">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+          <table class="table" *ngIf="list.length > 0; else first">
+              <thead>
+                <tr>
+                  <th scope="col">Location</th>
+                  <th scope="col">Weather</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of list; let i = index" (click)="select(item, i)" [class.active]="selectedIndex === i" >
+                  <td>{{item.weather.timezone}}</td>
+                  <td>{{item.weather.currently.summary}}</td>
+                  <td><button class="btn btn-danger" (click)="remove(item)"><i class="fas fa-trash"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+            <ng-template #first>
+                <div class="weather-list__txt">
+                    <h3>Weather list is empty</h3>
+                </div>
+            </ng-template>
+        </div>
+      </div>
+    </div>
+  </section>

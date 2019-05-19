@@ -1,0 +1,48 @@
+<section class="weather-currently">
+  <div class="container-fluid weather-currently__container">
+    <div class="row">
+      <div class="col">
+          <form #myform="ngForm" (ngSubmit)="addToList(myform)" class="form weather-currently__search row">
+                <input name="getLatitude" type="number" class="form-input form-control col-sm-5" 
+                placeholder="Latitude" required [(ngModel)]="latitude">
+                <input name="getLongitude" type="number" class="form-input form-control col-sm-5" 
+                placeholder="Longitude" required [(ngModel)]="longitude">
+      
+              <div class="form-field">
+                <input type="submit" value="Add to list" class="button btn">
+              </div>
+          </form>
+      </div>
+    </div>
+    <div class="row" *ngIf="weather">
+      <div class="col-sm">
+        <div class="weather-currently__graph">
+          <div class="row">
+              <div class="weather-currently__day col-sm-12" *ngIf="weather.weather">
+                  <div class="row">
+                      <div class="weather-currently__info col-sm">
+                          <h5 class="weather-currently__headline">Weather now</h5>
+                          <p class="weather-currently__headline-txt" [ngSwitch]="iconToday.icon">
+                              <i class="fas fa-sun"  *ngSwitchCase = "'clear-day'"></i>
+                              <i class="fas fa-cloud-sun" *ngSwitchCase="'partly-cloudy-day'"></i>
+                              <i class="fas fa-cloud-sun" *ngSwitchCase="'cloudy'"></i>
+                              <i class="fas fa-cloud-rain"  *ngSwitchCase="'rain'"></i>
+                              <i class="fas fa-smog"  *ngSwitchCase="'fog'"></i>
+                              <i class="fas fa-wind"  *ngSwitchCase="'wind'"></i>
+                            {{weather.weather.currently.temperature}} &#176;F
+                          </p>
+                      </div>
+                      <div class="weather-currently__desc col-sm">
+                          <p><strong>{{weather.weather.currently.summary}}</strong></p>
+                          <p><span>Wind</span> {{weather.weather.currently.windSpeed}}</p>
+                          <p><span>Pressure</span> {{weather.weather.currently.pressure}}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-weather-list [list]="list" (weather)="getWeatherItem($event)"></app-weather-list>

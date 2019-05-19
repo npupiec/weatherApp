@@ -1,0 +1,57 @@
+@import '../../assets/scss/colors';
+
+.weather-currently {
+    &__container {
+        background-color: $blue;
+        color: $white;
+        padding: 3em;
+    }
+
+    &__graph {
+        background-color: $sky;
+        margin-top: 2em;
+        padding: 4em;
+    }
+
+    &__day {
+        border: 1px solid $white;
+        position: relative;
+    }
+
+    &__headline {
+        position: absolute;
+        left: 1em;
+        top: -15px;
+        z-index: 1;
+        background-color: $sky;
+
+        &-txt {
+            font-size: 2.5em;
+        }
+    }
+
+    &__info {
+        padding: 1em;
+    }
+
+    &__desc {
+        padding: 1em;
+    }
+
+    &__search {
+        display: flex;
+        justify-content: space-around;
+
+        @media (max-width: 767px) {
+            input {
+                margin-top: 1em;
+            }
+        }
+
+        .button {
+            background-color: $button;
+            color: $white;
+            border: $button;
+        }
+    }
+}

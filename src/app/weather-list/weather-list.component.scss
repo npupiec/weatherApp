@@ -1,0 +1,15 @@
+@import '../../assets/scss/colors';
+
+.weather-list {
+    &__txt {
+        margin-top: 1em;
+    }
+
+    tr {
+        &.active {
+            background-color: $sky;
+            color: $white;
+        }
+    }
+    
+}
