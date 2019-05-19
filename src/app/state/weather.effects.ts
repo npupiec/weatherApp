@@ -6,10 +6,7 @@ import {Action} from "@ngrx/store";
 import {catchError, map, mergeMap} from "rxjs/operators";
 import { GET_WEATHER, 
         GET_WEATHER_SUCCESS, 
-        GET_WEATHER_FAIL,
-        DELETE_WEATHER,
-        DELETE_WEATHER_SUCCESS,
-        DELETE_WEATHER_FAIL
+        GET_WEATHER_FAIL
     } from './weather.actions';
 
 @Injectable()
